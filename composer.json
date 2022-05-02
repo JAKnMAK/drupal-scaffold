@@ -1,0 +1,29 @@
+{
+    "name": "jaknmak/drupal-scaffold",
+    "description": "Add customized files to instance of Drupal.",
+    "type": "composer-plugin",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "composer-plugin-api": "^2.0",
+        "drupal/core-composer-scaffold": "^9.3"
+    },
+    "require-dev": {
+        "composer/composer": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JAKnMAK\\": "src"
+        }
+    },
+    "extra": {
+        "class": "JAKnMAK\\DrupalScaffoldPlugin",
+        "drupal-scaffold": {
+            "file-mapping": {
+                "[web-root]/sites/default/services.yml": "assets/services.yml",
+                "[web-root]/sites/default/services.local.yml": "assets/services.local.yml",
+                "[web-root]/sites/default/settings.php": "assets/settings.php",
+                "[web-root]/sites/default/settings.local.php": "assets/settings.local.php"
+            }
+        }
+    }
+}

@@ -88,15 +88,16 @@
  * ];
  * @endcode
  */
+$databases = [];
 $databases['default']['default'] = [
-  'database' => getenv('DRUPAL_DATABASE'),
-  'username' => getenv('DRUPAL_DATABASE_USER'),
-  'password' => getenv('DRUPAL_DATABASE_PASSWORD'),
-  'prefix' => getenv('DRUPAL_DATABASE_PREFIX'),
-  'host' => getenv('DRUPAL_DATABASE_HOST'),
-  'port' => getenv('DRUPAL_DATABASE_PORT'),
-  'namespace' => getenv('DRUPAL_DATABASE_NAMESPACE'),
-  'driver' => getenv('DRUPAL_DATABASE_DRIVER'),
+  'database' => 'drupal',
+  'username' => 'drupal',
+  'password' => 'drupal',
+  'host' => 'drupal_database',
+  'port' => '3306',
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
 ];
 
 /**
@@ -229,7 +230,7 @@ $databases['default']['default'] = [
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-$settings['config_sync_directory'] = '../config';
+$settings['config_sync_directory'] = '../config/sync';
 
 /**
  * Settings:
@@ -258,7 +259,7 @@ $settings['config_sync_directory'] = '../config';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = getenv('DRUPAL_SALT');
+$settings['hash_salt'] = 'k37kugTlLU9XYkRMSCcPb0kIpzJH4k0FWdOMDBJIXLOASi3nDGcvDTMRD09xXVWY';
 
 /**
  * Deployment identifier.
@@ -497,7 +498,7 @@ $settings['update_free_access'] = FALSE;
  * must exist and be writable by Drupal. This directory must be relative to
  * the Drupal installation directory and be accessible over the web.
  */
-$settings['file_public_path'] = 'public';
+$settings['file_public_path'] = 'files';
 
 /**
  * Private file path:
@@ -712,8 +713,10 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * @endcode
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
+ *
+ * @see https://www.drupal.org/docs/installing-drupal/trusted-host-settings
  */
-$settings['trusted_host_patterns'] = ['^' . getenv('DRUPAL_TRUSTED_HOST') . '$'];
+$settings['trusted_host_patterns'] = ['^drupal\.local$'];
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.

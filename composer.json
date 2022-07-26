@@ -19,6 +19,9 @@
         "class": "JAKnMAK\\DrupalScaffoldPlugin",
         "drupal-scaffold": {
             "file-mapping": {
+                "[web-root]/phpcs.xml": "assets/phpcs.xml",
+                "[web-root]/phpstan.neon": "assets/phpstan.neon",
+                "[web-root]/phpunit.xml": "assets/phpunit.xml",
                 "[web-root]/sites/default/services.yml": "assets/services.yml",
                 "[web-root]/sites/default/services.local.yml": "assets/services.local.yml",
                 "[web-root]/sites/default/settings.php": "assets/settings.php",
